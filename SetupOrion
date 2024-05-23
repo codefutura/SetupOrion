@@ -18301,7 +18301,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   studio:
-    image: supabase/studio:20240205-b145c86 ## Versão da imagem
+    image: supabase/studio:20240520-0259321 ## Versão da imagem
 
     healthcheck:
       test:
@@ -18355,7 +18355,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   kong:
-    image: kong:2.8.1 ## Versão da imagem
+    image: kong:3.6.1 ## Versão da imagem
     entrypoint: bash -c 'eval "echo \"\$\$(cat ~/temp.yml)\"" > ~/kong.yml && /docker-entrypoint.sh kong docker-start'
 
     
@@ -18407,7 +18407,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   auth:
-    image: supabase/gotrue:v2.132.3 ## Versão da imagem
+    image: supabase/gotrue:v2.152.0 ## Versão da imagem
 
     healthcheck:
       test:
@@ -18466,7 +18466,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   rest:
-    image: postgrest/postgrest:v12.0.1 ## Versão da imagem
+    image: postgrest/postgrest:v12.0.3 ## Versão da imagem
     command: "postgrest"
 
     networks:
@@ -18488,7 +18488,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   realtime:
-    image: supabase/realtime:v2.25.50 ## Versão da imagem
+    image: supabase/realtime:v2.29.2 ## Versão da imagem
     command: "sh -c \"/app/bin/migrate && /app/bin/realtime eval 'Realtime.Release.seeds(Realtime.Repo)' && /app/bin/server\"\n"
 
     healthcheck:
@@ -18533,7 +18533,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   storage:
-    image: supabase/storage-api:v0.46.4 ## Versão da imagem
+    image: supabase/storage-api:v1.3.1 ## Versão da imagem
 
     volumes:
       - /root/supabase/docker/volumes/storage:/var/lib/storage:z
@@ -18593,7 +18593,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   imgproxy:
-    image: darthsim/imgproxy:v3.8.0 ## Versão da imagem
+    image: darthsim/imgproxy:v3.24 ## Versão da imagem
 
     healthcheck:
       test:
@@ -18621,7 +18621,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   meta:
-    image: supabase/postgres-meta:v0.80.0 ## Versão da imagem
+    image: supabase/postgres-meta:v0.80.1 ## Versão da imagem
 
     networks:
       - $nome_rede_interna ## Nome da rede interna
@@ -18642,7 +18642,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   functions:
-    image: supabase/edge-runtime:v1.36.1 ## Versão da imagem
+    image: supabase/edge-runtime:v1.53.1 ## Versão da imagem
     command:
       - start
       - '--main-service'
@@ -18674,7 +18674,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   analytics:
-    image: supabase/logflare:1.4.0 ## Versão da imagem
+    image: supabase/logflare:1.7.0 ## Versão da imagem
 
     healthcheck:
       test:
@@ -18715,7 +18715,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   db:
-    image: supabase/postgres:15.1.0.147 ## Versão da imagem
+    image: supabase/postgres:15.1.1.55 ## Versão da imagem
 
     healthcheck:
       test: 'pg_isready -U postgres -h localhost'
@@ -18761,7 +18761,7 @@ services:
 ## --------------------------- ORION --------------------------- ##
 
   vector:
-    image: timberio/vector:0.28.1-alpine ## Versão da imagem
+    image: timberio/vector:nightly-2024-05-23-alpine ## Versão da imagem
     command:
       - '--config'
       - etc/vector/vector.yml
